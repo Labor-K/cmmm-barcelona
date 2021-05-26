@@ -1,0 +1,240 @@
+<html>
+<head>
+<meta charset="utf-8">
+<title>CMMM Barcelona</title>
+<meta name="viewport" content="initial-scale=1,maximum-scale=1,user-scalable=no">
+<link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
+<script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
+<script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+
+<style>
+body { margin: 0; padding: 0; }
+#map { position: absolute; top: 0; bottom: 0; width: 100%; }
+</style>
+</head>
+<body>
+<style>
+ul{ 
+				font-size: 12px; 
+				padding: 0 !important ;
+				margin: 0 !important;
+			}
+
+			li{ 
+				font-size: 12px; 
+				line-height: 15px;
+				list-style-type: none;
+			}
+
+.mapboxgl-popup-anchor-top .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-center .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-right .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-right .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-bottom-left .mapboxgl-popup-tip,
+.mapboxgl-popup-anchor-top-right .mapboxgl-popup-tip, 
+.mapboxgl-popup-anchor-top-left .mapboxgl-popup-tip{
+    display:none !important;
+}
+
+.mapboxgl-popup{
+    transform:none !important;
+    position: fixed;
+    top: 70px;
+    bottom:0;
+    width: 350px;
+    z-index: 99999999999;
+
+}
+
+.mapboxgl-popup-content {
+overflow-y: scroll;
+overflow-x: scroll;
+width: 350px;
+z-index: 99999999999;
+}
+
+#content{
+  padding-left: 2%;
+
+}
+
+#content_iframe{
+  border: none;
+}
+
+#content_image{
+  display: block;
+height: auto;
+max-width: 300px;
+}
+
+.marker {
+display: block;
+border: none;
+border-radius: 50%;
+cursor: pointer;
+padding: 0;
+background-color: white;
+width: 50px;
+height: 50px;
+}
+
+#header{
+  position: fixed;
+  background-color: white;
+  width: 340px;
+  height: 70px;
+  padding-left: 2%;
+
+}
+
+h2{
+  font-size: 18px;
+  padding-left: 2%;
+
+}
+
+
+.show{}
+
+.hide{ display: none;}
+</style>
+ 
+<div id="map"></div>
+<div id="Header"> <h2>CMMM Barcelona</h2></div>
+ 
+<script>
+	// TO MAKE THE MAP APPEAR YOU MUST
+	// ADD YOUR ACCESS TOKEN FROM
+	// https://account.mapbox.com
+	mapboxgl.accessToken = 'pk.eyJ1IjoicmNvZW5lbi1rbGFiIiwiYSI6ImNrZHk4NWtraDRna3QyenJvZWN3ZWUweHEifQ.3UTo-_da7VgRSkMVfHEgFg';
+
+  var geojson = d3.json('https://raw.githubusercontent.com/Labor-K/mini-publics/master/map_c.geojson');
+  console.log(geojson)
+
+/* var geojson = {
+'type': 'FeatureCollection',
+'features': [
+{
+'type': 'Feature',
+'properties': {
+'message': 'Foo',
+'iconSize': [60, 60]
+},
+'geometry': {
+'type': 'Point',
+'coordinates': [-66.324462, -16.024695]
+}
+},
+{
+'type': 'Feature',
+'properties': {
+'message': 'Bar',
+'iconSize': [50, 50]
+},
+'geometry': {
+'type': 'Point',
+'coordinates': [-61.21582, -15.971891]
+}
+},
+{
+'type': 'Feature',
+'properties': {
+'message': 'Baz',
+'iconSize': [40, 40]
+},
+'geometry': {
+'type': 'Point',
+'coordinates': [-63.292236, -18.281518]
+}
+}
+]
+}; */
+ 
+var map = new mapboxgl.Map({
+container: 'map',
+style: 'mapbox://styles/mapbox/streets-v11',
+center: [2.1672982544316963, 41.38662162232132  ], // initial map center in [lon, lat]
+      zoom: 13,
+});
+
+
+d3.json(
+				'https://raw.githubusercontent.com/Labor-K/cmmm-barcelona/main/database_a.geojson', function (err, data) {
+          console.log(data)
+          if (err) throw err;
+         data.features.forEach(function (marker) {
+
+           console.log(marker.properties.Grup)
+// Create a DOM element for each marker.
+var el = document.createElement('div');
+el.className = 'marker';
+el.setAttribute("ID", marker.properties.Grup )
+
+// el.style.backgroundImage =
+// 'url(https://placekitten.com/g/' +
+// marker.properties.Grup.join('/') +
+// '/)';
+// el.style.width = marker.properties.iconSize[0] + 'px';
+// el.style.height = marker.properties.iconSize[1] + 'px';
+ el.style.backgroundSize = '100%';
+ el.style.backgroundImage= 'url('+marker.properties.Image+')'
+
+ let showVideo = "show"
+ let showImage = "show"
+ if(marker.properties.Video === ''){showVideo = "hide" }
+ if(marker.properties.Image === ''){showImage = "hide" }
+
+
+ var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
+  '<div id="content">' + 
+  '<h3>' + marker.properties.Grup + '</h3>' +
+  '<ul>' + 
+  '<li>' + marker.properties.Data + '</li>' +
+  '<li>' + marker.properties.Demanda + '</li>' +
+  '<li>' + marker.properties.Direcció + '</li>' +
+  '<li>' + marker.properties.Resultat + '</li>' +
+  '</ul>'+
+  '<img id="content_image" class="'+showImage+'" src="'+marker.properties.Image+'">' +
+  '<p id="bodytext">' +   marker.properties.Text + '</p>' +
+
+  '<iframe id="content_iframe" class="'+showVideo+'" src="'+marker.properties.Video+'">' + '</iframe>'+
+  '</div>'
+
+
+);
+
+
+// el.addEventListener('click', function () {
+// window.alert(marker);
+
+
+
+// });
+
+
+ 
+// Add markers to the map.
+new mapboxgl.Marker(el)
+.setLngLat(marker.geometry.coordinates)
+.setPopup(popup)
+.addTo(map);
+});
+          
+
+          
+          
+          
+          
+          });
+
+
+
+
+</script>
+ 
+</body>
+</html>
+<script src="https://player.vimeo.com/api/player.js"></script>
