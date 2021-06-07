@@ -16,11 +16,12 @@
     "Demanda":"Particular",
     "Informació":"",
     "Direcció":"C/ Nou de la Rambla",
-    "Text":" 99",
-    "Video":"Sfgnfkjgndfkjngkdjfngkdnfkgjndkfjgndf",
-    "Image":"",
-    "Notes":"https://i.picsum.photos/id/55/200/300.jpg?hmac=VjTl-6Y6NNyUWof_G17-KlocVl0QuUoxpir1beSTl8A",
-    "Icon":"",
+    "Text":"Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet. Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.",
+    "Video":"https://player.vimeo.com/video/520706586?title=0&byline=0&portrait=0",
+    "Image":"https://i.picsum.photos/id/55/200/300.jpg?hmac=VjTl-6Y6NNyUWof_G17-KlocVl0QuUoxpir1beSTl8A",
+    "Notes":"This is a special Note",
+    "Icon":"/executat.png",
+    "Link":"", 
     "FIELD16":"square"
     }
   },
@@ -39,11 +40,12 @@
     "Demanda":"Inmb",
     "Informació":"<img src=\"https://drive.google.com/uc?export=download&id=1YU47FlRgzl_3c_9Ftpp8ABmMtx29aJWO\"></img>",
     "Direcció":"C/ Carretes",
-    "Text":" 63",
-    "Video":"",
+    "Text":"Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"https://player.vimeo.com/video/520706586?title=0&byline=0&portrait=0",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/aturat.png", 
+    "Link":"",    
     "FIELD16":"round"
     }
   },
@@ -62,11 +64,12 @@
     "Demanda":"Particular",
     "Informació":"",
     "Direcció":"C/ de Ferlandina",
-    "Text":" 65",
-    "Video":"",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
+    "Video":"https://player.vimeo.com/video/520706586?title=0&byline=0&portrait=0",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/executat.png", 
+    "Link":"",    
     "FIELD16":"triangle"
     }
   },
@@ -85,11 +88,12 @@
     "Demanda":"BANKIA",
     "Informació":"",
     "Direcció":"C/ de Sant Gil",
-    "Text":" 4",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/aturat.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -108,11 +112,12 @@
     "Demanda":"Particular",
     "Informació":"",
     "Direcció":"C/ Sant Gil",
-    "Text":" 4",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/executat.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -131,11 +136,12 @@
     "Demanda":"Particular",
     "Informació":"",
     "Direcció":"C/ de Sant Gil",
-    "Text":" 4",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/executat.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -154,11 +160,12 @@
     "Demanda":"Budmac Investments",
     "Informació":"",
     "Direcció":"Carrer dels Salvador",
-    "Text":" 18",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/suspes.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -177,11 +184,12 @@
     "Demanda":"BBVA",
     "Informació":"",
     "Direcció":"C/ Sant Gil",
-    "Text":" 4 bis",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/suspes.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -200,11 +208,12 @@
     "Demanda":"Inmb",
     "Informació":"",
     "Direcció":"C/ Sant Gil",
-    "Text":" 4 bis",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/aturat.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -223,11 +232,12 @@
     "Demanda":"BANKIA",
     "Informació":"",
     "Direcció":"C/ Paloma",
-    "Text":" 12",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
-    "Image":"",
+    "Image":"https://via.placeholder.com/1920x1080",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/suspes.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -246,11 +256,12 @@
     "Demanda":"Particular",
     "Informació":"",
     "Direcció":"C/ Sant Gil",
-    "Text":" 4",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
-    "Image":"",
+    "Image":"https://via.placeholder.com/1920x1080",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/executat.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -269,11 +280,12 @@
     "Demanda":"Inmb",
     "Informació":"",
     "Direcció":"C/ Arc del Teatre",
-    "Text":" 67",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/aturat.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -294,9 +306,10 @@
     "Direcció":"C/ Salvador",
     "Text":" 18",
     "Video":"",
-    "Image":"",
+    "Image":"https://via.placeholder.com/1920x1080",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/suspes.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -315,11 +328,12 @@
     "Demanda":"Inmb",
     "Informació":"",
     "Direcció":"C/ Arc del Teatre",
-    "Text":" 67",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/aturat.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -338,11 +352,12 @@
     "Demanda":"BBVA",
     "Informació":"",
     "Direcció":"C/ Aurora",
-    "Text":" 20",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"/suspes.png", 
+    "Link":"",    
     "FIELD16":""
     }
   },
@@ -361,11 +376,12 @@
     "Demanda":"BANKIA",
     "Informació":"",
     "Direcció":"C/Nàpols",
-    "Text":" 100",
+    "Text":" Lorem ipsum dolor sit amet, consetetur sadipscing elitr",
     "Video":"",
     "Image":"",
     "Notes":"",
-    "Icon":"",
+    "Icon":"", 
+    "Link":"/executat.png",    
     "FIELD16":""
     }
   }

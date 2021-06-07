@@ -6,9 +6,15 @@
 <link href="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.css" rel="stylesheet">
 <script src="https://api.mapbox.com/mapbox-gl-js/v2.2.0/mapbox-gl.js"></script>
 <script src="//d3js.org/d3.v3.min.js" charset="utf-8"></script>
+<script   src="https://code.jquery.com/jquery-3.6.0.min.js"   integrity="sha256-/xUj+3OJU5yExlq6GSYGSHk7tPXikynS7ogEvDej/m4="   crossorigin="anonymous"></script>
+
+<link rel="preconnect" href="https://fonts.gstatic.com">
+<link href="https://fonts.googleapis.com/css2?family=Rubik:wght@400;700&display=swap" rel="stylesheet">
+
+
 
 <style>
-body { margin: 0; padding: 0; }
+body { margin: 0; padding: 0;font-family: 'Rubik', sans-serif; }
 #map { position: absolute; top: 0; bottom: 0; width: 100%; }
 </style>
 </head>
@@ -41,22 +47,25 @@ ul{
 .mapboxgl-popup{
     transform:none !important;
     position: fixed;
-    top: 70px;
+    top: 180px;
     bottom:0;
     width: 350px;
     z-index: 99999999999;
+    border-radius: none;
 
 }
 
 .mapboxgl-popup-content {
 overflow-y: scroll;
 overflow-x: scroll;
-width: 350px;
+width: 358px;
 z-index: 99999999999;
+border-radius: none;
+
 }
 
 #content{
-  padding-left: 2%;
+  padding-left: 8%;
 
 }
 
@@ -76,7 +85,7 @@ border: none;
 border-radius: 50%;
 cursor: pointer;
 padding: 0;
-background-color: white;
+background-color: red;
 width: 50px;
 height: 50px;
 }
@@ -85,26 +94,92 @@ height: 50px;
   position: fixed;
   background-color: white;
   width: 340px;
-  height: 70px;
+  height: 180px;
   padding-left: 2%;
 
 }
 
-h2{
+
+
+h2 h3 h4{
   font-size: 18px;
   padding-left: 2%;
-
+  display: inline-block !important;
 }
 
+.showMarker{
+  visibility: visible;
+}
+
+.hideDemanda{
+  visibility: hidden;
+}
+
+.hideResultat{
+  visibility: hidden;
+}
+
+.hideGrup{
+  visibility: hidden;
+}
+
+.btnActive{
+  background-color: yellow;
+}
 
 .show{}
 
 .hide{ display: none;}
+
+#filter{
+  position: fixed;
+  display: inline-block;
+  background-color: white;
+  margin-left: 340px;
+  width: 500px;
+  height: 180px;
+  padding-left: 2%;
+
+}
 </style>
  
 <div id="map"></div>
-<div id="Header"> <h2>CMMM Barcelona</h2></div>
+<div id="Header"> 
+  <h2>CMMM Barcelona</h2>
+  <p>This is a small explanation text. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit amet.</p>
+</div>
+
+<div id="filter">
+  <h3>Filter:</h3>
+  <h4>Resultat:
+  <button id="button" type="button" onclick="ResultatAturat()" >Aturat</button>
+  <button id="button" type="button" onclick="ResultatNd()" >ND</button>
+  <button id="button" type="button" onclick="ResultatSuspes()" >Suspes</button>
+</h4>
+  <h4>Demanda:
+  <button id="button" type="button" onclick="DemandaBBVA()" >BBVA</button>
+  <button id="button" type="button" onclick="DemandaBANKIA()" >Bankia</button>
+  <button id="button" type="button" onclick="DemandaInmb()" >Inmb</button>
+</h4>
+
+<h4>Grup:
+  <button id="button" type="button" onclick="GrupVaris()" >Varis</button>
+  <button id="button" type="button" onclick="GrupPAH()" >PAH Barcelona</button>
+  <button id="button" type="button" onclick="GrupSDR()" >Stop Desnonaments Raval</button>
+  <button id="button" type="button" onclick="GrupRR()" >Raval Resistim</button>
+
+
+
+
+</h4>
+</div>
  
+
+
+
+
+
+
 <script>
 	// TO MAKE THE MAP APPEAR YOU MUST
 	// ADD YOUR ACCESS TOKEN FROM
@@ -160,18 +235,96 @@ center: [2.1672982544316963, 41.38662162232132  ], // initial map center in [lon
       zoom: 13,
 });
 
+// RESUlTAT FILTER
 
+    function ResultatAturat(){   
+      $( ".aturat" )
+      .toggleClass( "hideResultat" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+    function ResultatNd(){   
+      $( ".ND" )
+      .toggleClass( "hideResultat" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+      function ResultatSuspes(){   
+      $( ".suspes" )
+      .toggleClass( "hideResultat" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+
+
+// DEMANDA FILTER
+
+function DemandaBBVA(){   
+      $( ".BBVA" )
+      .toggleClass( "hideDemanda" );
+      $( event.srcElement ).toggleClass("btnActive")
+    }
+
+      function DemandaBANKIA(){   
+      $( ".BANKIA" )
+      .toggleClass( "hideDemanda" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+      function DemandaInmb(){   
+      $( ".Inmb" )
+      .toggleClass( "hideDemanda" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+
+// Grup FILTER
+
+function GrupVaris(){   
+      $( ".Varis" )
+      .toggleClass( "hideGrup" );
+      $( event.srcElement ).toggleClass("btnActive")
+    }
+
+      function GrupPAH(){   
+      $( ".PAHBarcelona" )
+      .toggleClass( "hideGrup" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+      function GrupSDR(){   
+      $( ".StopDesnonamentsRaval" )
+      .toggleClass( "hideGrup" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+function GrupRR(){   
+      $( ".RavalResistim" )
+      .toggleClass( "hideGrup" );
+      $( event.srcElement ).toggleClass("btnActive")
+}
+
+
+//https://raw.githubusercontent.com/Labor-K/cmmm-barcelona/main/database_a.geojson
+
+    
 d3.json(
-				'https://raw.githubusercontent.com/Labor-K/cmmm-barcelona/main/database_a.geojson', function (err, data) {
+				'database_a.geojson', function (err, data) {
           console.log(data)
           if (err) throw err;
          data.features.forEach(function (marker) {
 
            console.log(marker.properties.Grup)
+           var namez = "marker " + marker.properties.Demanda.replace(/\s/g, '') + " "+ marker.properties.Resultat.replace(/\s/g, '') + " " +marker.properties.Grup.replace(/\s/g, '')
 // Create a DOM element for each marker.
 var el = document.createElement('div');
-el.className = 'marker';
-el.setAttribute("ID", marker.properties.Grup )
+el.className =  namez.toString();
+
+
+ el.setAttribute("ID", "Mark")
+// el.setAttribute("class", marker.properties.Demanda )
+// el.setAttribute("class", marker.properties.Resultat )
+
 
 // el.style.backgroundImage =
 // 'url(https://placekitten.com/g/' +
@@ -180,7 +333,7 @@ el.setAttribute("ID", marker.properties.Grup )
 // el.style.width = marker.properties.iconSize[0] + 'px';
 // el.style.height = marker.properties.iconSize[1] + 'px';
  el.style.backgroundSize = '100%';
- el.style.backgroundImage= 'url('+marker.properties.Image+')'
+//  el.style.backgroundImage= 'url('+marker.properties.Image+')'
 
  let showVideo = "show"
  let showImage = "show"
@@ -193,14 +346,19 @@ el.setAttribute("ID", marker.properties.Grup )
 // Database: Add Column: LINK, 
 
 
+
  var popup = new mapboxgl.Popup({ offset: 25 }).setHTML(
   '<div id="content">' + 
-  '<h3>' + marker.properties.Grup + '</h3>' +
+  '<h3>' + "Nom: " + marker.properties.Grup + '</h3>' +
   '<ul>' + 
-  '<li>' + marker.properties.Data + '</li>' +
-  '<li>' + marker.properties.Demanda + '</li>' +
-  '<li>' + marker.properties.Direcció + '</li>' +
-  '<li>' + marker.properties.Resultat + '</li>' +
+  '<li>' + "Direccio: " + marker.properties.Direcció + '</li>' +
+  '<li>' + "Resultat: " + marker.properties.Resultat + '</li>' +
+  '<img id="content_image" class="'+showImage+'" src="'+marker.properties.Icon+'">' +
+  '<li>' + "Data: " + marker.properties.Data + '</li>' +
+  '<li>' + "Demanda: " + marker.properties.Demanda + '</li>' +
+  '<li>' + "Grup: " + marker.properties.Grup + '</li>' +
+  '<li>' + "Descripcio: " + marker.properties.Grup + '</li>' +
+
   '</ul>'+
   '<img id="content_image" class="'+showImage+'" src="'+marker.properties.Image+'">' +
   '<p id="bodytext">' +   marker.properties.Text + '</p>' +
@@ -230,7 +388,7 @@ new mapboxgl.Marker(el)
           
 
           
-          
+
           
           
           });
